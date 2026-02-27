@@ -1,8 +1,17 @@
-<!DOCTYPE html>
-[https://fastht.ml](https://pan.w3.org)
-<html lang="en"> 
-<head>
-<meta charset="utf-8">
+```bash
+pip install python-fasthtml
+```
+```main.py
+from fasthtml.common import *
+
+app,rt = fast_app()
+
+@rt('/')
+def get(): return Div(P('Hello World!'), hx_get="/change")
+
+serve()
+```
+
 <!--
   OMNI CORE: THE NEW DIMENSION 
   Format: .oggx (Oga Glass eXtension)
@@ -11,8 +20,8 @@
   <!-- [SECTION 1: CFML SERVER LOGIC](https:fastht.ml) --> 
    <!-- //Simulate scientific data retrieval -->
 </head>
-<cfscript 
-    paperMetadata = { 
+</cfscript>
+    paperMetadata = {
     
        " title": "NEURO-SYNTHETIC SPATIAL ARCHITECTURES",
         "author": "qubuhub RESEARCH LABS",
@@ -20,8 +29,16 @@
         "timestamp": Now()
         gridStatus = "Hyper-Threading Active"
          };
-    <cfscript\>
-  <!--- [SECTION 2: XML/CTG CONTENT MANIFEST] --->
+  ```accordion.py
+def accordion_demo():
+    """UI components can be styled and reused.
+    UI libraries can be installed using `pip`."""
+    accs = [accordion(id=id, question=q, answer=a,
+        question_cls="text-black s-body", answer_cls=a_cls, container_cls=c_cls)
+        for id,(q,a) in enumerate(qas)]
+    return Div(*accs, cls=acc_cls)
+    
+      <!--- [SECTION 2: XML/CTG CONTENT MANIFEST] --->
 <xml-ctg style="display:none;">
     <Types xmlns="http://schemas.openxmlformats.org">
         <Default Extension=".oggx" ContentType="application/spatial-research+xml"/>
@@ -296,8 +313,21 @@ documents = [
   {"title" => "Book 3", "author" => "Author3", "ratings" => 30}
 ]
 client.collections['books'].documents.import(documents)">
-</script
-        (fast.ai)
+```
+```card3d.py
+</script>
+def card_3d_demo():
+    """This is a standalone isolated Python component.
+    Behavior and styling is scoped to the component."""
+    def card_3d(text, background, amt, left_align):
+        # JS and CSS can be defined inline or in a file
+        scr = ScriptX('card3d.js', amt=amt)
+        align='left' if left_align else 'right'
+        sty = StyleX('card3d.css', background=f'url({background})', align=align)
+        return Div(text, Div(), sty, scr)
+    # Design credit: https://codepen.io/markmiro/pen/wbqMPa
+    card = card_3d("Mouseover me", bgurl, amt=1.5, left_align=True)
+    return Div(card, style=cardcss)
 \documentclass{standalone}
 \usepackage{amsmath}
 \usepackage{tikz}
@@ -383,3 +413,17 @@ tar xvzf ./typesense-server-30.1-linux-amd64.tar.gz
            [<!-- Mirror from www.typesense.org/-->](https://fastht.ml)    
 </body>
 </html>
+```
+
+```todos.py
+class Todo:
+    "Use any database system you like"
+    id:int; title:str; done:bool
+    def __ft__(self):
+        "`__ft__` defines how FastHTML renders an object"
+        return Li("✅ " if self.done else "", self.title)
+ 
+todos = db.create(Todo)
+def todos_table():
+    "This example uses the `fastlite` DB lib"
+    return Ul(*todos(), cls=list_class)
