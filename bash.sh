@@ -11,4 +11,7 @@ npm install
 
 # Start the browser (customize as needed)
 npm start
+
 npx shadcn@latest add @algolia/search
+
+composer require algolia/search-bundle:4.0.0
