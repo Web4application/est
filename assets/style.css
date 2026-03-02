@@ -1,0 +1,158 @@
+/* 
+   ========================================
+   GLASSMORPHISM CORE v2.0 - DARK MODE
+   ========================================
+*/
+
+:root {
+    /* Color Palette */
+    --primary: #7dcfff;
+    --secondary: #bb9af7;
+    --accent: #ff77ff;
+    --bg-dark: #050508;
+    
+    /* Glass Multipliers - Adjust these to change "thickness" */
+    --glass-opacity: 0.4;
+    --glass-blur: 16px;
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-glow: rgba(255, 255, 255, 0.05);
+    
+    /* Animation Speeds */
+    --speed-fast: 0.2s;
+    --speed-mid: 0.4s;
+}
+
+/* 1. LAYERED BACKGROUND SYSTEM */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-dark);
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* The Animated Mesh Gradient */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: 
+        radial-gradient(at 0% 0%, #1a1a2e 0px, transparent 50%),
+        radial-gradient(at 100% 0%, #2e1a4e 0px, transparent 50%),
+        radial-gradient(at 100% 100%, #1a2e2e 0px, transparent 50%),
+        radial-gradient(at 0% 100%, #2e1a1a 0px, transparent 50%),
+        radial-gradient(at 50% 50%, #0f1a2e 0px, transparent 80%);
+    background-size: 200% 200%;
+    animation: mesh-flow 15s ease infinite alternate;
+}
+
+/* The Noise/Grain Texture Overlay */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url('https://grainy-gradients.vercel.app');
+}
+
+@keyframes mesh-flow {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 20% 20%; }
+}
+
+/* 2. DYNAMIC LIGHT SOURCE (Follower) */
+#glow-cursor {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(125, 207, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    will-change: left, top;
+}
+
+/* 3. THE GLASS PANEL SYSTEM */
+.glass-panel {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 480px;
+    padding: 40px;
+    border-radius: 28px;
+    background: rgba(15, 15, 26, var(--glass-opacity));
+    backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.7),
+        inset 0 0 0 1px var(--glass-glow);
+    
+    /* 3D Perspective Hardware Acceleration */
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transition: transform var(--speed-mid) cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Multiplier: Extra Heavy / Frosted */
+.glass-heavy {
+    --glass-opacity: 0.7;
+    --glass-blur: 30px;
+}
+
+/* 4. CONTENT FLOATING (Parallax effect) */
+.glass-content {
+    transform: translateZ(40px); /* Lifts content off the glass */
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to bottom right, #fff, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* 5. INTERACTIVE COMPONENTS */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #000;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(125, 207, 255, 0.2);
+    transition: all var(--speed-fast) ease;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(125, 207, 255, 0.4);
+}
+
+/* Utility to center the container */
+.container {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
