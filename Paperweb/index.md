@@ -8,6 +8,13 @@ sdk_version: 6.5.1
 app_file: app.py
 pinned: true
 short_description: '[Check out the configuration reference at ]https://huggingfa'
+algolia_search:
+  indices:
+    - name: posts
+      class: App\Entity\Post
+    - name: comments
+      class: App\Entity\Comment
+# $searchService->index($entityManager, $postsAndComments)
 ---
 
 [Check out the configuration reference at ]https://huggingfa
