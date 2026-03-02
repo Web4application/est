@@ -1,4 +1,6 @@
-</to-do>
+<html>
+<link rel="stylesheet" href="https://unpkg.com/@algolia/sitesearch@latest/dist/search.min.css" />
+<script src="https://unpkg.com/@algolia/sitesearch@latest/dist/search.min.js"></script>
 
  [this is a webOS browser app making](https://fastht.ml)
  
