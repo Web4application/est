@@ -1,3 +1,11 @@
+algolia_search:
+  indices:
+    - name: posts
+      class: App\Entity\Post
+    - name: comments
+      class: App\Entity\Comment
+
+$searchService->index($entityManager, $postsAndComments);
 // JST: The final layer of the stack
 const root = document.getElementById('root');
 const config = JSON.parse(root.dataset.config);
