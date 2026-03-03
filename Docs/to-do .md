@@ -1,7 +1,5 @@
 <head>
-	<script src="https://global.localizecdn.com/localize.js"></script>
-
-<script>(function(a){if(!a.Localize){a.Localize={X:[]};var methods=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","getSourceLanguage","detectLanguage","getAvailableLanguages","setWidgetLanguages","hideLanguagesInWidget","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget"];for(var i=0;i<methods.length;i++){a.Localize[methods[i]]=(function(m){return function(){a.Localize.X.push([m,arguments]);};})(methods[i]);}}})(window);</script>
+	<script src="https://global.localizecdn.com/localize.js"></script><script>(function(a){if(!a.Localize){a.Localize={X:[]};var methods=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","getSourceLanguage","detectLanguage","getAvailableLanguages","setWidgetLanguages","hideLanguagesInWidget","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget"];for(var i=0;i<methods.length;i++){a.Localize[methods[i]]=(function(m){return function(){a.Localize.X.push([m,arguments]);};})(methods[i]);}}})(window);</script>
 
 <script>
   Localize.initialize({
